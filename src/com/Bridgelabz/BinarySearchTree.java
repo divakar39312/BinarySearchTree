@@ -3,14 +3,13 @@ package com.Bridgelabz;
 public class BinarySearchTree {
 	/*
 	 * Created root of type Node
+	 * Created Functions AddNode and PrintNode
 	 * 
 	 */
 	Node root;
-	boolean flag = true;
 	
 	public void addNode(int data) {
-		
-		Node node = new Node(data);
+				Node node = new Node(data);
 		node.data = data;
 		node.left = null;
 		node.right = null;
@@ -39,19 +38,14 @@ public class BinarySearchTree {
 			}
 		}
 	}
-	//To Print Tree its Function
-	public void printTree(Node node) {
-		if(node.left != null) {
-			printTree(node.left);
-		}
-		System.out.print(node.data+" ");
-		if(node.right != null) {
-			printTree(node.right);
-		}
-	}
 	
 	public class Node {
-				int data;
+		/*
+		 * With 3 variable data,left and right.
+		 * left and right are of Node type variables.
+		 * Created a Constructor passing integer data. 
+		 */
+		int data;
 		Node left;
 		Node right;
 		public Node(int data) {
@@ -60,25 +54,15 @@ public class BinarySearchTree {
 		
 
 	}
-	//To Search Node Function
-	public void searchNode(Node node, int value) {
-		if(root == null) {
-			System.out.println("Tree is Empty");	
-			return;
+	//To Print Tree its Function
+	public void printTree(Node node) {
+		if(node.left != null) {
+			printTree(node.left);
 		}
-		else {
-			if(node.data == value) {
-				flag = true;
-				return;
-			}
-			if(flag == false && node.left != null) {
-				searchNode(node.left, value);
-			}
-			if(flag == false && node.right != null) {
-				searchNode(node.right, value);
-			}
+		System.out.println(node.data+" ");
+		if(node.right != null) {
+			printTree(node.right);
 		}
-		
 	}
 
 }
